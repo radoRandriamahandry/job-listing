@@ -1,8 +1,11 @@
 <template>
-  <div class="max-w-screen-xl mx-auto">
-    <h1 class="text-xl font-bold">Home page</h1>
+  <header
+    class="h-32 max-w-screen bg-primary"
+    style="background-image: url('/src/assets/images/bg-header-desktop.svg')"
+  ></header>
+  <main class="max-w-screen-xl mx-auto">
     <Cards :state="state" />
-  </div>
+  </main>
 </template>
 
 <script>
