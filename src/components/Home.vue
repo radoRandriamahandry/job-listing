@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import state from "../assets/data.json"
+import { state, hasFilters } from "../store/state.js"
 
 // components
 import Cards from "../components/Cards.vue"
