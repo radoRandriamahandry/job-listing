@@ -42,24 +42,24 @@
     <div
       class="flex items-center justify-end px-2 py-1 space-x-3 text-sm font-semibold  text-primary"
     >
-      <span
-        class="px-2 py-1 rounded-md cursor-pointer  bg-neutral-bg hover:bg-primary hover:text-white"
-        >{{ data.role }}</span
-      >
-      <span
-        class="px-2 py-1 rounded-md cursor-pointer  bg-neutral-bg hover:bg-primary hover:text-white"
-        >{{ data.level }}</span
-      >
+      <span class="filters" @click="updateFilters('role', data.role)">{{
+        data.role
+      }}</span>
+      <span class="filters" @click="updateFilters('level', data.level)">{{
+        data.level
+      }}</span>
       <span
         v-for="language in data.languages"
         :key="language"
-        class="px-2 py-1 rounded-md cursor-pointer  bg-neutral-bg hover:bg-primary hover:text-white"
+        class="filters"
+        @click="updateFilters('languages', language)"
         >{{ language }}</span
       >
       <span
         v-for="tool in data.tools"
         :key="tool"
-        class="px-2 py-1 rounded-md cursor-pointer  bg-neutral-bg hover:bg-primary hover:text-white"
+        class="filters"
+        @click="updateFilters('tools', tool)"
         >{{ tool }}
       </span>
     </div>
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import { updateFilters } from "../store/state.js"
 export default {
   props: {
     data: {
@@ -74,7 +75,8 @@ export default {
       required: true,
     },
   },
+  setup() {
+    return { updateFilters }
+  },
 }
 </script>
-
-<style></style>

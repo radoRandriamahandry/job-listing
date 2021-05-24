@@ -1,5 +1,5 @@
 /**
- * Return true if the the filtered list object has filter value in it
+ * @brief Return true if the the filtered list object has filter value in it
  *
  * @param {Object} filtersList
  * @return {boolean}
@@ -23,7 +23,7 @@ export const testFilter = (filtersList) => {
 }
 
 /**
- * Return true if the arrayToCheck contains all of the items inside of the arrayFitler
+ * @brief Return true if the arrayToCheck contains all of the items inside of the arrayFitler
  *
  * @param {string} arrayToCheck
  * @param {string} arrayFilter
@@ -36,7 +36,7 @@ export const hasEveryItem = (arrayToCheck, arrayFilter) => {
 }
 
 /**
- * Return true if all of the filter criteria in filtersList are meet in the ObjecToFilter object
+ * @brief Return true if all of the filter criteria in filtersList are meet in the ObjecToFilter object
  *
  * @param {object} objectToFilter
  * @param {object} filtersList
@@ -64,17 +64,4 @@ export const checkCriteria = (objectToFilter, filtersList) => {
   })
 
   return meetCriteria
-}
-
-// Create a function that edit the filtes object
-// params : filters argument and value as an object
-export const updateFilters = (filters, key, value) => {
-  // new Value should be an object
-  // Test if filters.key is not an object
-
-  if (typeof filters[key] === "object") {
-    filters[key].push(value)
-  } else {
-    filters[key] = value
-  }
 }

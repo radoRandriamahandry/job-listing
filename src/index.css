@@ -8,4 +8,8 @@
     @apply bg-neutral-bg text-[15px];
     font-family: "Spartan", sans-serif;
   }
+
+  .filters {
+    @apply px-2 py-1 rounded-md cursor-pointer bg-neutral-bg hover:bg-primary hover:text-white;
+  }
 }
