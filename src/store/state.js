@@ -5,7 +5,6 @@ import data from "../assets/data.json"
 import { testFilter, checkCriteria } from "./helper.js"
 
 const importedData = ref(data)
-const hasFilters = ref(false)
 
 const filters = reactive({
   role: "",
@@ -14,25 +13,44 @@ const filters = reactive({
   tools: [],
 })
 
+const hasFilters = computed(() => {
+  return testFilter(filters)
+})
+
 /**
  * @brief Update the filters value in order to update the job list
  *
  * @param {string} key
  * @param {string} value
  */
-export const updateFilters = (key, value) => {
-  console.log("run updateFilters")
+const updateFilters = (key, value) => {
   if (typeof filters[key] === "object") {
-    filters[key].push(value)
+    if (!filters[key].includes(value)) {
+      filters[key].push(value)
+    }
   } else {
     filters[key] = value
   }
-  hasFilters.value = ref(testFilter(filters))
 }
 
-export const state = computed(() => {
-  hasFilters.value = ref(testFilter(filters))
+const removeFilters = (key, value) => {
+  if (typeof filters[key] === "object") {
+    filters[key] = filters[key].filter((item) => {
+      return item !== value
+    })
+  } else {
+    filters[key] = ""
+  }
+}
 
+const clearFilters = () => {
+  filters.role = ""
+  filters.level = ""
+  filters.languages = []
+  filters.tools = []
+}
+
+const jobs = computed(() => {
   if (!hasFilters.value) {
     return importedData.value.map((item) => {
       return item
@@ -43,3 +61,16 @@ export const state = computed(() => {
     })
   }
 })
+
+const state = () => {
+  return {
+    jobs,
+    hasFilters,
+    filters,
+    updateFilters,
+    clearFilters,
+    removeFilters,
+  }
+}
+
+export default state
