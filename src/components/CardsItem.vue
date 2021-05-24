@@ -9,10 +9,18 @@
       <div class="grid gap-2">
         <div class="flex items-center space-x-4">
           <h3 class="text-sm font-semibold text-primary">{{ data.company }}</h3>
-          <!-- Create a chip component or class -->
           <div
             v-if="data.new"
-            class="px-2 py-1 text-xs font-semibold text-white uppercase rounded-full  bg-primary"
+            class="
+              px-2
+              py-[0.30rem]
+              text-xs
+              font-semibold
+              text-white
+              uppercase
+              rounded-full
+              bg-primary
+            "
           >
             new !
           </div>
@@ -24,7 +32,7 @@
           </div>
         </div>
         <div class="text-lg font-bold">{{ data.position }}</div>
-        <div class="flex space-x-4 text-sm font-semibold text-gray-400">
+        <div class="flex space-x-4 text-sm text-gray-400">
           <span>{{ data.postedAt }}</span>
           <span>{{ data.contract }}</span>
           <span>{{ data.location }}</span>
