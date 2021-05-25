@@ -8,7 +8,9 @@
       </div>
       <div class="grid gap-2">
         <div class="flex items-center space-x-4">
-          <h3 class="text-sm font-semibold text-primary">{{ job.company }}</h3>
+          <h3 class="text-sm font-semibold text-primary">
+            {{ job.company }}
+          </h3>
           <div
             v-if="job.new"
             class="
@@ -42,24 +44,24 @@
     <div
       class="flex items-center justify-end px-2 py-1 space-x-3 text-sm font-semibold  text-primary"
     >
-      <span class="filters" @click="updateFilters('role', job.role)">{{
+      <span class="filters" @click="addFilters('role', job.role)">{{
         job.role
       }}</span>
-      <span class="filters" @click="updateFilters('level', job.level)">{{
+      <span class="filters" @click="addFilters('level', job.level)">{{
         job.level
       }}</span>
       <span
         v-for="language in job.languages"
         :key="language"
         class="filters"
-        @click="updateFilters('languages', language)"
+        @click="addFilters('languages', language)"
         >{{ language }}</span
       >
       <span
         v-for="tool in job.tools"
         :key="tool"
         class="filters"
-        @click="updateFilters('tools', tool)"
+        @click="addFilters('tools', tool)"
         >{{ tool }}
       </span>
     </div>
@@ -76,9 +78,9 @@ export default {
     },
   },
   setup() {
-    const { updateFilters } = state()
+    const { addFilters } = state()
 
-    return { updateFilters }
+    return { addFilters }
   },
 }
 </script>

@@ -23,7 +23,7 @@ const hasFilters = computed(() => {
  * @param {string} key
  * @param {string} value
  */
-const updateFilters = (key, value) => {
+const addFilters = (key, value) => {
   if (typeof filters[key] === "object") {
     if (!filters[key].includes(value)) {
       filters[key].push(value)
@@ -67,7 +67,7 @@ const state = () => {
     jobs,
     hasFilters,
     filters,
-    updateFilters,
+    addFilters,
     clearFilters,
     removeFilters,
   }

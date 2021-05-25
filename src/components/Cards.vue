@@ -1,10 +1,18 @@
 <template>
-  <div class="mt-24">
-    <div class="grid gap-6">
-      <div v-for="job in jobs" :key="job.id">
+  <div class="relative mt-24">
+    <transition-group
+      enter-active-class="duration-200 ease-out"
+      enter-from-class="transform opacity-0"
+      leave-active-class="absolute duration-100"
+      leave-to-class="transform opacity-0"
+      move-class="duration-500 ease-out transform"
+      tag="div"
+      class="grid gap-6"
+    >
+      <div v-for="job in jobs" :key="job.id" class="t">
         <CardsItem :job="job" />
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -24,5 +32,3 @@ export default {
   setup() {},
 }
 </script>
-
-<style></style>
