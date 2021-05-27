@@ -1,5 +1,16 @@
 <template>
-  <div class="relative max-w-xs mx-auto mt-16 lg:mt-24 sm:mx-0">
+  <div
+    class="
+      relative
+      w-4/5
+      min-w-[330px]
+      mx-auto
+      mt-16
+      lg:max-w-screen-lg
+      xl:max-w-screen-xl
+      lg:mt-24
+    "
+  >
     <transition-group
       enter-active-class="duration-200 ease-out"
       enter-from-class="transform opacity-0"
