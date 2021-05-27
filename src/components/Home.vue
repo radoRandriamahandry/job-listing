@@ -3,7 +3,7 @@
     class="h-32 max-w-screen bg-primary"
     style="background-image: url('/src/assets/images/bg-header-desktop.svg')"
   ></header>
-  <main class="relative max-w-screen-xl mx-auto">
+  <main class="relative mx-auto max-w-screen sm:max-w-screen-xl">
     <FilterMenu />
     <Cards :jobs="jobs" />
   </main>

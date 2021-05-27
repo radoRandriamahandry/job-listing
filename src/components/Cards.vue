@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mt-24">
+  <div class="relative max-w-xs mx-auto mt-16 lg:mt-24 sm:mx-0">
     <transition-group
       enter-active-class="duration-200 ease-out"
       enter-from-class="transform opacity-0"
@@ -9,7 +9,7 @@
       tag="div"
       class="grid gap-6"
     >
-      <div v-for="job in jobs" :key="job.id" class="t">
+      <div v-for="job in jobs" :key="job.id">
         <CardsItem :job="job" />
       </div>
     </transition-group>

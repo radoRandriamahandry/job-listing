@@ -1,13 +1,18 @@
 <template>
   <div
-    class="grid grid-cols-2 px-8 transition-all duration-100 ease-in transform bg-white border-l-4 border-transparent rounded-lg shadow-lg  py-7 hover:-translate-y-1 hover:shadow-xl hover:border-primary"
+    class="relative grid w-full px-4 mx-auto mt-5 transition-all duration-100 ease-in transform bg-white border-transparent rounded-lg shadow-lg  lg:mt-0 sm:border-l-4 sm:px-8 sm:grid-rows-none sm:grid-cols-2 py-7 hover:-translate-y-1 hover:shadow-xl hover:border-primary"
   >
-    <div class="flex items-center space-x-5">
-      <div class="w-auto h-20">
+    <!-- Only on small screen -->
+    <div class="absolute w-auto h-12 left-4 -top-6 lg:hidden">
+      <img class="h-full" :src="job.logo" />
+    </div>
+    <!-- end -->
+    <div class="flex mt-2 lg:mt-0">
+      <div class="hidden w-auto h-20 sm:block">
         <img class="h-full" :src="job.logo" />
       </div>
-      <div class="grid gap-2">
-        <div class="flex items-center space-x-4">
+      <div class="grid gap-4 lg:gap-2">
+        <div class="flex items-center gap-4">
           <h3 class="text-sm font-semibold text-primary">
             {{ job.company }}
           </h3>
@@ -33,7 +38,7 @@
             featured
           </div>
         </div>
-        <div class="text-lg font-bold">{{ job.position }}</div>
+        <div class="font-bold text-md md:text-lg">{{ job.position }}</div>
         <div class="flex space-x-4 text-sm text-gray-400">
           <span>{{ job.postedAt }}</span>
           <span>{{ job.contract }}</span>
@@ -41,8 +46,11 @@
         </div>
       </div>
     </div>
+    <!-- Only show on small screen -->
+    <div class="w-full h-px my-5 bg-gray-300 md:hidden"></div>
+    <!-- Filters -->
     <div
-      class="flex items-center justify-end px-2 py-1 space-x-3 text-sm font-semibold  text-primary"
+      class="flex flex-wrap items-center gap-4 py-1 text-sm font-semibold  lg:gap-3 sm:px-2 sm:justify-end text-primary"
     >
       <span class="filters" @click="addFilters('role', job.role)">{{
         job.role
